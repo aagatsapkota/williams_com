@@ -29,6 +29,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
+    "react-pdf": "^5.0.0",
     "uuid": "^7.0.0"
   },
   "keywords": [
