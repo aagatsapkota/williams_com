@@ -17,6 +17,9 @@ export default class Index extends React.Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
+  handleAttachment = (e) => {
+    this.setState({ [e.target.name]: e.target.files[0] })
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -46,7 +49,7 @@ export default class Index extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1>Contact</h1>
+              <h1>Submit Your Journal</h1>
               <form
                 name="contact"
                 method="post"
@@ -107,7 +110,22 @@ export default class Index extends React.Component {
                     />
                   </div>
                 </div>
+                <div className="file">
+                    <label className="file-label">
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="attachment"
+                        onChange={this.handleAttachment}
+                      />
+                      <span className="file-cta">
+                        <span className="file-label">Choose a file…</span>
+                      </span>
+                    </label>
+                    <br />
+                </div>
                 <div className="field">
+                  <br />
                   <button className="button is-link" type="submit">
                     Send
                   </button>

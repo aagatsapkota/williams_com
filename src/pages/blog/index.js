@@ -15,10 +15,10 @@ const BlogIndexPage = () => {
     setNumPages(numPages)
   }
   const goToPrevPage = () => {
-    setState((state) => ({ numPages: state.numPages - 1 }))
+    setPageNumber(pageNumber - 1)
   }
   const goToNextPage = () => {
-    setState((state) => ({ numPages: state.numPages + 1 }))
+    setPageNumber(pageNumber + 1)
   }
   return (
     <Layout>
@@ -47,24 +47,26 @@ const BlogIndexPage = () => {
           </div>
         </div>
       </section>
-      <div>
-        <Document
-          file={file}
-          onLoadSuccess={onDocumentLoadSuccess}
-        >
-          <Page pageNumber={pageNumber} />
-        </Document>
-        <p>
-          Page
-          {pageNumber}
-          of
-          {numPages}
-        </p>
-      </div>
-      <nav>
-        <button type="button" onClick={goToPrevPage}>Prev</button>
-        <button type="button" onClick={goToNextPage}>Next</button>
-      </nav>
+      <section>
+        <div>
+          <Document
+            file={file}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
+            <Page pageNumber={pageNumber} />
+          </Document>
+          <p>
+            Page
+            {pageNumber}
+            of
+            {numPages}
+          </p>
+        </div>
+        <nav>
+          <button type="button" onClick={goToPrevPage}>Prev</button>
+          <button type="button" onClick={goToNextPage}>Next</button>
+        </nav>
+      </section>
     </Layout>
   )
 }
